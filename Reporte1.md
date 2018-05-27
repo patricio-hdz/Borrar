@@ -44,6 +44,10 @@ La matriz bidiagonal que en teoría ya tenemos, la podemos diagonalizar mediante
 
 donde <a href="https://www.codecogs.com/eqnedit.php?latex=\Sigma" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\Sigma" title="\Sigma" /></a> es una matriz diagonal, <a href="https://www.codecogs.com/eqnedit.php?latex=X" target="_blank"><img src="https://latex.codecogs.com/gif.latex?X" title="X" /></a> y <a href="https://www.codecogs.com/eqnedit.php?latex=Y" target="_blank"><img src="https://latex.codecogs.com/gif.latex?Y" title="Y" /></a> son matrices unitarias ortogonales.
 
+Entrando un poco más a detalle respecto a esta parte del artículo, me parece que la explicación del porqué sólo requerimos acceso a un renglón y al anterior o al posterior dependiendo de qué metodologa adoptemos es importante porque nuevamente los autores sacan ventaja de esto para realizar la menor transferecia posible entre la GPU y CPU. También y complementando lo anterior la parte donde se explica que ellos limitan la cantidad de coeficientes en la memoria compartida para evitar sobrepasar su capacidad, y lo hacen procesando un determinado número de renglones a la vez creo que es importante para entender la implementación global.
+
+Finalmente, el algoritmo es eficiente ya que ejecuta el mismo número de operaciones en la GPU, que el algoritmo secuencial. La capacidad total que requiere la implementación es de <a href="https://www.codecogs.com/eqnedit.php?latex=(6\times&space;min(m,n))\times&space;4" target="_blank"><img src="https://latex.codecogs.com/gif.latex?(6\times&space;min(m,n))\times&space;4" title="(6\times min(m,n))\times 4" /></a> bytes en la CPU, mientras que en la GPU es de <a href="https://www.codecogs.com/eqnedit.php?latex=(m^{2}&plus;n^{2})\times&space;4" target="_blank"><img src="https://latex.codecogs.com/gif.latex?(m^{2}&plus;n^{2})\times&space;4" title="(m^{2}+n^{2})\times 4" /></a> bytes.
+
 
 
 
