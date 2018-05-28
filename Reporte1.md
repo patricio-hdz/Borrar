@@ -49,6 +49,20 @@ Entrando un poco más a detalle respecto a esta parte del artículo, me parece q
 Finalmente, el algoritmo es eficiente ya que ejecuta el mismo número de operaciones en la GPU, que el algoritmo secuencial. La capacidad total que requiere la implementación es de <a href="https://www.codecogs.com/eqnedit.php?latex=(6\times&space;min(m,n))\times&space;4" target="_blank"><img src="https://latex.codecogs.com/gif.latex?(6\times&space;min(m,n))\times&space;4" title="(6\times min(m,n))\times 4" /></a> bytes en la CPU, mientras que en la GPU es de <a href="https://www.codecogs.com/eqnedit.php?latex=(m^{2}&plus;n^{2})\times&space;4" target="_blank"><img src="https://latex.codecogs.com/gif.latex?(m^{2}&plus;n^{2})\times&space;4" title="(m^{2}+n^{2})\times 4" /></a> bytes.
 
 
+#### Sección de resultados
+
+Primero, los autores detallan las características del equipo en el cual corrieron su algoritmo para el cálculo de *SVD* en la GPU, una versión optimizada de MATLAB en la CPU y un último itento en LAPACK Intel MKL 10.0.4, permitiendo para este último threading dinámico. Posteriormente, se explica la metodología de prueba que se siguió.
+
+Se generaron 10 matrices densas para cada grupo de dimensiones con el fin de correr las pruebas evitando comparar un *sample* muy bueno o muy malo en particular, y en cambio se tomaron los promedios. El algoritmo que proponen los autores en la GPU logra un *speed up* de 8.2 en comparación a un 3.04 de la implementación en Intel MKL y de 59.3 en comparación a un 3.32 de MATLAB. Es importante mencionar que los tiempos registrados para las corridas del cálculo de *SVD* incluyen los tiempos de bidiagonalización, diagonalización y el cálculo de las matrices ortogonales. Es interesante que para dimensiones relativamente pequeñas la CPU vence a la GPU, pero esto cambia conforme aumentamos las dimensiones.
+
+Al comparar los tiempos de corrida sólo para la bidiagonalización parcial en la GPU y en Intel MKL, se observaron resultados de 16.5 en la GPU contra 1.58 en Intel MKL. El performance para matrices cuadradas incrementa conforma incrementa el tamaño de las matrices en cuestión. Los autores tomaron un *block size* de 1 para matrices pequeñas 
+
+
+
+
+
+
+Por otro lado, 
 
 
 
