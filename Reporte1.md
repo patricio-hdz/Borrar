@@ -65,3 +65,6 @@ En la gráfica siguiente se nota un resumen muy claro de las mejoras que lograro
 
 Finalmente, los autores resumen que han presentado una implementación de *SVD* en la GPU, logrando obtener un máximo performance, primero, para el proceso de bidiagonalización mediante el uso de la librería optimizada de CUBLAS; posteriormente, para el proceso de diagonalización mediante un híbrido el cual divide de manera eficiente los procesos a ejecutar por la CPU y la GPU. Lo anterior, permitió calcular *SVD* de matrices de dimensiones hasta del orden de 14k, lo cual sería imposible de lograr en la CPU. Aunque existen errores de precisión, al menos en las pruebas que se realizaron en el paper, dichos errores fueron marginales.
 
+#### Referencia
+
+http://www.academia.edu/2869751/Singular_value_decomposition_on_GPU_using_CUDA
