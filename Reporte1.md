@@ -55,15 +55,13 @@ Primero, los autores detallan las características del equipo en el cual corrier
 
 Se generaron 10 matrices densas para cada grupo de dimensiones con el fin de correr las pruebas evitando comparar un *sample* muy bueno o muy malo en particular, y en cambio se tomaron los promedios. El algoritmo que proponen los autores en la GPU logra un *speed up* de 8.2 en comparación a un 3.04 de la implementación en Intel MKL y de 59.3 en comparación a un 3.32 de MATLAB. Es importante mencionar que los tiempos registrados para las corridas del cálculo de *SVD* incluyen los tiempos de bidiagonalización, diagonalización y el cálculo de las matrices ortogonales. Es interesante que para dimensiones relativamente pequeñas la CPU vence a la GPU, pero esto cambia conforme aumentamos las dimensiones.
 
-Al comparar los tiempos de corrida sólo para la bidiagonalización parcial en la GPU y en Intel MKL, se observaron resultados de 16.5 en la GPU contra 1.58 en Intel MKL. El performance para matrices cuadradas incrementa conforma incrementa el tamaño de las matrices en cuestión. Los autores tomaron un *block size* de 1 para matrices pequeñas 
+Al comparar los tiempos de corrida sólo para la bidiagonalización parcial en la GPU y en Intel MKL, se observaron resultados de 16.5 en la GPU contra 1.58 en Intel MKL. El performance para matrices cuadradas incrementa conforme incrementa el tamaño de las matrices en cuestión. Los autores tomaron un *block size* de 1 para <a href="https://www.codecogs.com/eqnedit.php?latex=n" target="_blank"><img src="https://latex.codecogs.com/gif.latex?n" title="n" /></a> pequeñas en matrices de <a href="https://www.codecogs.com/eqnedit.php?latex=m&space;\times&space;n" target="_blank"><img src="https://latex.codecogs.com/gif.latex?m&space;\times&space;n" title="m \times n" /></a> y de 16 para <a href="https://www.codecogs.com/eqnedit.php?latex=n" target="_blank"><img src="https://latex.codecogs.com/gif.latex?n" title="n" /></a> grande.
 
+En la gráfica siguiente se nota un resumen muy claro de las mejoras que lograron los autores con su implementación:
 
+<p align="center">
+  <img src="https://github.com/patricio-hdz/Borrar/blob/master/Imagenes/Im1.png">
+</p>
 
-
-
-
-Por otro lado, 
-
-
-
+Finalmente, los autores resumen que han presentado una implementación de *SVD* en la GPU, logrando obtener un máximo performance, primero, para el proceso de bidiagonalización mediante el uso de la librería optimizada de CUBLAS; posteriormente, para el proceso de diagonalización mediante un híbrido el cual divide de manera eficiente los procesos a ejecutar por la CPU y la GPU. Lo anterior, permitió calcular *SVD* de matrices de dimensiones hasta del orden de 14k, lo cual sería imposible de lograr en la CPU. Aunque existen errores de precisión, al menos en las pruebas que se realizaron en el paper, dichos errores fueron marginales.
 
