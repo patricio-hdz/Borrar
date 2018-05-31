@@ -36,6 +36,11 @@ Posteriormente, se abordan los métodos de decenso en coordenadas. Estos método
 
 A continuación se habla de los métodos de decenso gradiente estocástico. A diferencia de los métodos anteriores, sí se calcula el gradiente completo, sin embargo, no se usa el cálculo exacto, sino que más bien se estima. Bajo esta aproximación, históricamente se han tenido problemas para usar los parámetros correctos, sin embargo, últimamente el uso de pasos grandes para regularizar y el uso de promedios de las iteraciones anteriores hace que el algoritmo se estabilize rápidamente.
 
+En la siguiente parte el artículo toca el tema de algebra lineal aleatorizada. La idea de los métodos que utilizan la aproximación de esta sección es aproximar <a href="https://www.codecogs.com/eqnedit.php?latex=M\approx&space;Q(Q^{T}M)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?M\approx&space;Q(Q^{T}M)" title="M\approx Q(Q^{T}M)" /></a> con <a href="https://www.codecogs.com/eqnedit.php?latex=Q\epsilon&space;\mathbb{R}^{p\times&space;x}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?Q\epsilon&space;\mathbb{R}^{p\times&space;x}" title="Q\epsilon \mathbb{R}^{p\times x}" /></a>, o bien construir una representación *low-rank* con base en un subconjunto de columnas o renglones para acelerar el cómputo. Al realizar lo anterior de manera aleatoria, podemos controlar el nivel de error.
+
+También, se describen tres partes importantes del algebra lineal aleatorizado. Primero, se acelera el cómputo de operadores de funciones que dependen de los valores espectrales de la matriz. Segundo, la idea también funciona en la obtención de estimamdores insesgados por gradiente para matrices, lo cual significa que se puede extender a todos los algoritmos de decenso gradiente estocástico. Finalmente, la aleatorización, permite esbozar funciones objetivo, es decir, aproximarlas de otra manera para tener iteraciones mucho más simples que puedan posteriormente ser realizadas con métodos de primer orden, sin perder precisión.
+
+#### Sección de Role of parallel and distributed computation
 
 
 
