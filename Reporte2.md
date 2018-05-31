@@ -20,6 +20,17 @@ En cuanto a los métodos de primer orden, se presenta la ecuación tradicional y
 
 En esta sección los autores abordan principalmente el *framework* de gradiente proximal y cómo es que problemas *non-smooth* pueden ser resueltos casi tan eficientemente como sus contrapartes *smooth*.
 
+El artículo da una breve introducción de funciones objetivo *smooth* las cuales se pueden resolver con métodos de pocas iteraciones pero de mayor complejidad computacional que otros del estilo de decenso gradiente el cual aún con más iteraciones para llegar a una precisión determinada, tiene un costo bajo por iteraciones y es fácilmente generalizable a distintas aplicaciones. En muchos casos ese costo mínimo por iteración convierte a estas metodologías en las más rápidas.
+
+Interesantemente se puede calcular el número de iteraciones que se requerirán para una precisión objetivo, y con una modificación propuesta por Nesterov se obtiene un método de primer orden óptimo (método de gradiente acelerado). La discusión de los autores comienza a ser más bien de condiciones en donde al aplicar algunas reglas creativas para escoger los parámetros de regularización y momentum se han obtenido muy bueno resultados en la práctica.
+
+Posteriormente se trata con funciones objetivo *F* compuestas por una función convexa y diferenciable <a href="https://www.codecogs.com/eqnedit.php?latex=f" target="_blank"><img src="https://latex.codecogs.com/gif.latex?f" title="f" /></a> y una función *non-smooth* convexa <a href="https://www.codecogs.com/eqnedit.php?latex=g" target="_blank"><img src="https://latex.codecogs.com/gif.latex?g" title="g" /></a>. Los métodos de gradiente proximal toman ventaja de la estructura compuesta anterior, para lograr tasas de convergencia similares a las de problemas *smooth*. Finalmente se habla de que los métodos anteriores que explotan de manera óptima las propiedas de concordancia de <a href="https://www.codecogs.com/eqnedit.php?latex=f" target="_blank"><img src="https://latex.codecogs.com/gif.latex?f" title="f" /></a> tienen operadores de proximidad manejables, lo cual se explota en las siguientes secciones.
+
+
+
+
+
+
 
 
 
