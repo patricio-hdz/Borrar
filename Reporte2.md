@@ -42,47 +42,18 @@ También, se describen tres partes importantes del algebra lineal aleatorizado. 
 
 #### Sección de Role of parallel and distributed computation
 
+Debido a las mejoras que se han tenido desde hace algunos años en el poder de cómputo y las capacidades de memoria, hoy en día, podemos manejar cantidades de datos masivas, sin embargo, la potencia que requieren dichos equipos no se ha ido eficientando a la misma velocidad, es por ello que al sacar jugo a las nuevas capacidades, y correr de manera más veloz nuestros algoritmos podemos eficientar consumos de energía y mantenerlos en niveles razonables.
 
+Posteriormente, se platica acerca de dos temas que representan problemas de los métodos de primer orden. Primero, existen problemas de comunicación entre las computadoras y la memoria interna. Segundo, hay problemas de sincronización, ya que para paralelizar los métodos de primer orden se necesita una orquestación de los procesos. Se discuten soluciones a estos problemas en la descripción de los mismos.
 
+A continuación se habla de métodos de primer orden ya que estos pueden ser fácilmente paralelizados, se explica un ejemplo de esto. Existen muchas tecnologías que son capaces de coordinar los procesos de algunos de los algoritmos sencillos, ejemplos de las misma son MapReduce, Hadoop, Spark, Mahout, MADlib ó SystemML. Los autores abordan como siguiente parte, métodos de primer orden que pueden ser implementados en paralelo, pero con el plus de cuidar que no haya un alta comunicación entre el procesador y la memoria interna para mejorar el performance. Finalmente, se unen las aproximaciones anteriores en algoritmos que pueden ser implementados de manera aíncrona y con el menor volumen de comunicación entre el procesador y la memoria interna; estas implementaciones son una explicación de cómo se pueden ir resolviendo los problemas que se presentaron al inicio de esta sección.
 
+#### Sección de Outlook for convex optimization
 
+Los problemas de Big Data muestran que debemos de revisar la manera en que diseñamos algoritmos de optimización convexa, ya que para adaptarlos a las tecnologías y condiciones actuales hay que tomar algunas decisiones poco convencionales con el objetivo de resolver un problema. El artículo muestra que existen pérdidas fundamentales ya sea en tiempos por ganar precisión o viceversa, pero esto representa un área de oportunidad.
 
-
-
-
-
-
-
-#### Conclusiones
-
-Al tener grandes cantidades de datos, se ha comenzado a bajar un poco el nivel de exigencia en cuanto a precisión en las soluciones de los algoritmos, sin embargo, se ha ganado en cuanto a poder tener estimaciones o resultados dentro de bases inmensas, que de otra manera nos dejarían incompetentes de poder sacar valor de ellas.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Dadas las características del hardware que se use siempre habrá que adaptar ciertos procesos, cuidando las limitantes que existen en cuestión de comunicación y sincronización, pero el uso de muchas de las técnicas y mejoras que se discuten en el artículo muestra que sí existen opciones para obtener los resultados esperados. Además, los autores preveen un uso mayor de modelos compuestos, lo cual supondrá un nuevo reto para obtener la misma información que hasta el momento se ha logrado, pero a una mayor velocidad.
 
 #### Referencia
 
 https://arxiv.org/pdf/1411.0972.pdf
-
-https://www.codecogs.com/eqnedit.php
