@@ -26,6 +26,20 @@ Interesantemente se puede calcular el número de iteraciones que se requerirán 
 
 Posteriormente se trata con funciones objetivo *F* compuestas por una función convexa y diferenciable <a href="https://www.codecogs.com/eqnedit.php?latex=f" target="_blank"><img src="https://latex.codecogs.com/gif.latex?f" title="f" /></a> y una función *non-smooth* convexa <a href="https://www.codecogs.com/eqnedit.php?latex=g" target="_blank"><img src="https://latex.codecogs.com/gif.latex?g" title="g" /></a>. Los métodos de gradiente proximal toman ventaja de la estructura compuesta anterior, para lograr tasas de convergencia similares a las de problemas *smooth*. Finalmente se habla de que los métodos anteriores que explotan de manera óptima las propiedas de concordancia de <a href="https://www.codecogs.com/eqnedit.php?latex=f" target="_blank"><img src="https://latex.codecogs.com/gif.latex?f" title="f" /></a> tienen operadores de proximidad manejables, lo cual se explota en las siguientes secciones.
 
+A continuación los autores hablan de funciones ojetivo proximales, realmente se hace una reformulación que parece inofensiva, pero que da pie para una mejora en capacidades de cómputo y modelaje. Primero que nada, esta reformulación puede recibir problemas con funciones objetivo *non-smooth* y *non-Lipschitz*, las cuales son muy comunes; segundo, podemos hacer uso del algoritmo ADMM (Alternating direction method of multipliers), el cual es muy poderoso ya que utiliza técnicas como la del Lagrangiano aumentado y descomposición dual. Además ADMM es fácilmente paralelizable, por último los autores tocan un par de problemas con el algoritmo que tienen que ver con resolver una ecuación que se requiere, pero hay paquetes que lo hacen y la otra es que cuando la función objetivo tiene más de dos términos, se pierden las garantías de convergencia.
+
+#### Sección de Big Data scaling via randomization
+
+En esta parte, el artículo habla de que, aún cuando los métodos de primer orden pueden resolver problemas de gran escala, en la práctica, el número total de procesos que se tienen que dar debido a las iteraciones de dichos métodos puede volverse imposible de realizar cuando las dimensiones del problema en cuestión crecen. Afortunadamente, los métodos de primer orden son lo suficientemente robustos como para ser aproximados via sus primitivas de optimización. Los autores entonces tratan en esta parte nuevas aproximaciones mediante aleatorización que permiten llevar los métodos de primer orden a escalas nunca antes vistas. Un ejemplo de estos problemas podría ser el PageRank de Google.
+
+Posteriormente, se abordan los métodos de decenso en coordenadas. Estos métodos en lugar de calcular el gradiente completo, sólo toman una coordenada y con ella sólo modifican su entrada correspondiente, para mejorar la función objetivo, el punto clave en esta metodología es la elección de las coordenadas. Increíblemente, al aleatorizar la elección de la coordenada tenemos excelentes resultados ya que se llegan a los resultados esperados con una variación relativamente controlada.
+
+A continuación se habla de los métodos de decenso gradiente estocástico. A diferencia de los métodos anteriores, sí se calcula el gradiente completo, sin embargo, no se usa el cálculo exacto, sino que más bien se estima. Bajo esta aproximación, históricamente se han tenido problemas para usar los parámetros correctos, sin embargo, últimamente el uso de pasos grandes para regularizar y el uso de promedios de las iteraciones anteriores hace que el algoritmo se estabilize rápidamente.
+
+
+
+
+
 
 
 
